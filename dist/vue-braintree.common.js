@@ -274,7 +274,7 @@ var __vue_staticRenderFns__ = [];
 var version = '2.0.2';
 
 var install = function install(Vue) {
-  Vue.component('v-braintree', Payment);
+  Vue.component('vbraintree', Payment);
 };
 
 var plugin = {

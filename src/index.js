@@ -3,7 +3,7 @@ import Payment from './Payment.vue'
 const version = '__VERSION__'
 
 const install = Vue => {
-  Vue.component('v-braintree', Payment)
+  Vue.component('vbraintree', Payment)
 }
 
 const plugin = {
