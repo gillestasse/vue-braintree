@@ -1,5 +1,5 @@
 <template>
-  <div class="payment">
+  <div :class="paymentClass">
     <div ref="dropin"></div>
     <slot name="button" v-bind:submit="submit">
       <button @click="submit" :class="btnClass">{{ btnText }}</button>
@@ -26,6 +26,10 @@ export default {
     btnClass: {
       type: String,
       default: "btn btn-primary"
+    },
+    paymentClass: {
+      type: String,
+      default: "payment"
     },
     paypal: {
       type: Object,
