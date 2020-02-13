@@ -25,7 +25,7 @@ export default {
     },
     btnClass: {
       type: String,
-      default: "btn btn-primary"
+      default: "buttonPay"
     },
     paymentClass: {
       type: String,
