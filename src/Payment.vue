@@ -116,13 +116,11 @@ export default {
       if (event) {
         event.preventDefault();
       }
-      console.info(this.threeDSecure);
 
       let requestPaymentConfig = {};
       if (this.threeDSecure === true) {
         requestPaymentConfig.threeDSecure = this.threeDSecureParameters;
       }
-      console.info(requestPaymentConfig)
       this.instance.requestPaymentMethod(
         requestPaymentConfig,
         (err, payload) => {
@@ -133,7 +131,6 @@ export default {
             console.error(err)
             return;
           }
-          console.info(sucess)
           this.$emit("success", payload);
         }
       );
