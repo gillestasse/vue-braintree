@@ -135,14 +135,12 @@ var script = {
         event.preventDefault();
       }
 
-      console.info(this.threeDSecure);
       var requestPaymentConfig = {};
 
       if (this.threeDSecure === true) {
         requestPaymentConfig.threeDSecure = this.threeDSecureParameters;
       }
 
-      console.info(requestPaymentConfig);
       this.instance.requestPaymentMethod(requestPaymentConfig, function (err, payload) {
         if (err) {
           // No payment method is available.
@@ -152,8 +150,6 @@ var script = {
           console.error(err);
           return;
         }
-
-        console.info(sucess);
 
         _this2.$emit("success", payload);
       });
