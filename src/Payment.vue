@@ -70,14 +70,14 @@ export default {
     threeDSecureParameters: {
       required: false,
       default: null,
-      validator: (value) => {
-        return typeof value === 'object';
+      validator: value => {
+        return typeof value === "object";
       }
     }
   },
   data() {
     return {
-      instance: null, // The DropIn Instance
+      instance: null // The DropIn Instance
     };
   },
   mounted() {
@@ -111,23 +111,29 @@ export default {
     });
   },
   methods: {
-    submit (event) {
+    submit(event) {
+      console.info("submit");
       if (event) {
         event.preventDefault();
       }
+      console.info(this.threeDSecure);
+
       let requestPaymentConfig = {};
       if (this.threeDSecure === true) {
-        requestPaymentConfig.threeDSecure = this.threeDSecureParameters
+        requestPaymentConfig.threeDSecure = this.threeDSecureParameters;
       }
-      this.instance.requestPaymentMethod(requestPaymentConfig, (err, payload) => {
-        if (err) {
-          // No payment method is available.
-          // An appropriate error will be shown in the UI.
-          this.$emit("error", err);
-          return;
+      this.instance.requestPaymentMethod(
+        requestPaymentConfig,
+        (err, payload) => {
+          if (err) {
+            // No payment method is available.
+            // An appropriate error will be shown in the UI.
+            this.$emit("error", err);
+            return;
+          }
+          this.$emit("success", payload);
         }
-        this.$emit("success", payload);
-      });
+      );
     }
   }
 };

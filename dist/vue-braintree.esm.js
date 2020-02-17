@@ -35,7 +35,11 @@ var script = {
     },
     btnClass: {
       type: String,
-      default: "btn btn-primary"
+      default: "buttonPay"
+    },
+    paymentClass: {
+      type: String,
+      default: "payment"
     },
     paypal: {
       type: Object,
@@ -77,7 +81,7 @@ var script = {
       required: false,
       default: null,
       validator: function validator(value) {
-        return _typeof(value) === 'object';
+        return _typeof(value) === "object";
       }
     }
   },
@@ -125,10 +129,13 @@ var script = {
     submit: function submit(event) {
       var _this2 = this;
 
+      console.info("submit");
+
       if (event) {
         event.preventDefault();
       }
 
+      console.info(this.threeDSecure);
       var requestPaymentConfig = {};
 
       if (this.threeDSecure === true) {
@@ -239,7 +246,7 @@ var normalizeComponent_1 = normalizeComponent;
 const __vue_script__ = script;
 
 /* template */
-var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"payment"},[_c('div',{ref:"dropin"}),_vm._v(" "),_vm._t("button",[_c('button',{class:_vm.btnClass,on:{"click":_vm.submit}},[_vm._v(_vm._s(_vm.btnText))])],{"submit":_vm.submit})],2)};
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:_vm.paymentClass},[_c('div',{ref:"dropin"}),_vm._v(" "),_vm._t("button",[_c('button',{class:_vm.btnClass,on:{"click":_vm.submit}},[_vm._v(_vm._s(_vm.btnText))])],{"submit":_vm.submit})],2)};
 var __vue_staticRenderFns__ = [];
 
   /* style */
