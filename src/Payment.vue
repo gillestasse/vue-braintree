@@ -122,6 +122,7 @@ export default {
       if (this.threeDSecure === true) {
         requestPaymentConfig.threeDSecure = this.threeDSecureParameters;
       }
+      console.info(requestPaymentConfig)
       this.instance.requestPaymentMethod(
         requestPaymentConfig,
         (err, payload) => {
@@ -129,8 +130,10 @@ export default {
             // No payment method is available.
             // An appropriate error will be shown in the UI.
             this.$emit("error", err);
+            console.error(err)
             return;
           }
+          console.info(sucess)
           this.$emit("success", payload);
         }
       );

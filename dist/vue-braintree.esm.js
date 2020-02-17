@@ -142,14 +142,18 @@ var script = {
         requestPaymentConfig.threeDSecure = this.threeDSecureParameters;
       }
 
+      console.info(requestPaymentConfig);
       this.instance.requestPaymentMethod(requestPaymentConfig, function (err, payload) {
         if (err) {
           // No payment method is available.
           // An appropriate error will be shown in the UI.
           _this2.$emit("error", err);
 
+          console.error(err);
           return;
         }
+
+        console.info(sucess);
 
         _this2.$emit("success", payload);
       });
